@@ -112,7 +112,6 @@ class RoundOp : public OpKernel {
 			else
 			{
 				// Denormalization
-				/*
 				if(newExp+based <= 0)
 				{
 					newMant = newMant+(1<<mant_bit);
@@ -127,12 +126,6 @@ class RoundOp : public OpKernel {
 							qOut += 1.0/(1UL<<rs);
 					}
 				//cout << "qOut = " << qOut << endl;
-				}
-				*/
-				for(unsigned int rs=1; rs <= mant_bit; rs++)
-				{
-					if(((newMant>>(mant_bit-rs)) & 1UL))
-						qOut += 1.0/(1UL<<rs);
 				}
 			}
 		
