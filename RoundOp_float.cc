@@ -104,7 +104,7 @@ class RoundOp : public OpKernel {
 			
 			}
 			// Minimum of representation
-			else if(newExp+based < 0-based)
+			else if(newExp+(mant_bit-1) < 0-based)//(newExp+based < 0-based)
 			{
 				qOut = 0.0;
 			}
@@ -156,9 +156,9 @@ class RoundOp : public OpKernel {
 			//mu.unlock();
 		}
 		*/
-		cout << "input=" << input(i) << endl;
+		//cout << "input=" << input(i) << endl;
 		output(i) = qOut;
-		cout << "output= " << output(i) << endl;
+		//cout << "output= " << output(i) << endl;
 		//cout << "===========================" << endl;
         mu.unlock();
     }
